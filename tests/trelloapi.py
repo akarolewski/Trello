@@ -2,7 +2,7 @@ import time
 
 import requests
 
-from common.config import get_trello_url, get_trello_api_key, get_trello_token
+from common.config import TRELLO_API_URL, TRELLO_API_KEY, TRELLO_TOKEN
 from common.helpers import generate_random_string
 from common.httpstatus import OK
 
@@ -103,15 +103,15 @@ class TrelloApi:
         assert response.status_code == OK
 
 
-BASE_URL = get_trello_url()
-API_KEY = get_trello_api_key()
-TOKEN = get_trello_token()
+BASE_URL = TRELLO_API_URL
+API_KEY = TRELLO_API_KEY
+TOKEN = TRELLO_TOKEN
 BOARD_NAME = generate_random_string(18)
 LIST_NAME = generate_random_string(18)
 
-FIRST_CARD_NAME = generate_random_string(14)
-SECOND_CARD_NAME = generate_random_string(14)
-THIRD_CARD_NAME = generate_random_string(14)
+FIRST_CARD_NAME = "first"
+SECOND_CARD_NAME = "second"
+THIRD_CARD_NAME = "third"
 
 api = TrelloApi(BASE_URL, API_KEY, TOKEN)
 

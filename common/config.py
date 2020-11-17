@@ -1,16 +1,14 @@
 import configparser
 
+TRELLO_API = 'trello-api'
+TRELLO = 'trello'
+
 config = configparser.RawConfigParser()
-config.read('../trello.cfg')
+config.read('trello.cfg')
 
-
-def get_trello_url():
-    return config.get('trello', 'url')
-
-
-def get_trello_api_key():
-    return config.get('trello', 'apikey')
-
-
-def get_trello_token():
-    return config.get('trello', 'token')
+TRELLO_API_URL = config.get(TRELLO_API, 'url')
+TRELLO_API_KEY = config.get(TRELLO_API, 'apikey')
+TRELLO_TOKEN = config.get(TRELLO_API, 'token')
+TRELLO_URL = config.get(TRELLO, 'url')
+TRELLO_USERNAME = config.get(TRELLO, 'email')
+TRELLO_PASSWORD = config.get(TRELLO, 'password')

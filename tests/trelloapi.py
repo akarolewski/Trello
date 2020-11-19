@@ -1,9 +1,4 @@
-import time
-
 import requests
-
-from common.config import TRELLO_API_URL, TRELLO_API_KEY, TRELLO_TOKEN
-from common.helpers import generate_random_string
 from common.httpstatus import OK
 
 
@@ -101,28 +96,3 @@ class TrelloApi:
 
         print('PUT A COMMENT ON A CARD: ', response.text)
         assert response.status_code == OK
-
-
-BASE_URL = TRELLO_API_URL
-API_KEY = TRELLO_API_KEY
-TOKEN = TRELLO_TOKEN
-BOARD_NAME = generate_random_string(18)
-LIST_NAME = generate_random_string(18)
-
-FIRST_CARD_NAME = "first"
-SECOND_CARD_NAME = "second"
-THIRD_CARD_NAME = "third"
-
-api = TrelloApi(BASE_URL, API_KEY, TOKEN)
-
-created_board_id = api.create_board(BOARD_NAME)
-created_list_id = api.create_list(BOARD_NAME, created_board_id)
-time.sleep(1)
-
-first_card_id = api.create_card(FIRST_CARD_NAME, created_list_id)
-second_card_id = api.create_card(SECOND_CARD_NAME, created_list_id)
-third_card_id = api.create_card(THIRD_CARD_NAME, created_list_id)
-
-print(api.post_comment_on_card('New comment for test', first_card_id))
-print(api.update_card('Description has been updated.', second_card_id))
-print(api.delete_card(third_card_id))

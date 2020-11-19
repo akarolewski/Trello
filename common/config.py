@@ -6,7 +6,7 @@ TRELLO = 'trello'
 config = configparser.RawConfigParser()
 config.read('trello.cfg')
 
-TRELLO_API_URL = config.get(TRELLO_API, 'url')
+BASE_URL = config.get(TRELLO_API, 'url')
 TRELLO_API_KEY = config.get(TRELLO_API, 'apikey')
 TRELLO_TOKEN = config.get(TRELLO_API, 'token')
 TRELLO_URL = config.get(TRELLO, 'url')
